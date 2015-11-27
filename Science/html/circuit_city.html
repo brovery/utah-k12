@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circuit City</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!--This is the link to the stylesheet.-->
+    <link rel="stylesheet" type="text/css" href="../css/homestyle.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+    <!--Custom Javascript-->
+    <script src="../js/homestyle.js"></script>
+</head>
+<body id="mainPage">
+<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+    <div class="row">
+        <div class="progress" id="progress1">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+            </div>
+            <span class="progress-type">Overall Progress</span>
+            <span class="progress-completed">0%</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row step">
+            <div id="div1" class="col-md-1 activestep" onclick="javascript: resetActive(event, 0, 'step-1');">
+                <span class="fa fa-cloud-download"></span>
+                <p>introduction</p>
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 10, 'step-2');">
+                <span class="fa fa-pencil"></span>
+                <p>Step 1</p>
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 20, 'step-3');">
+                <span class="fa fa-refresh"></span>
+                <p>Step 2</p>
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 30, 'step-4');">
+                <span class="fa fa-dollar"></span>
+                <p>Step 3</p>
+
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 40, 'step-5');">
+                <span class="fa fa-cloud-upload"></span>
+                <p>Step 4</p>
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 50, 'step-6');">
+                <span class="fa fa-cloud-upload"></span>
+                <p>Step 5</p>
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 60, 'step-7');">
+                <span class="fa fa-cloud-upload"></span>
+                <p>Step 6</p>
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 70, 'step-8');">
+                <span class="fa fa-cloud-upload"></span>
+                <p>Step 7</p>
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 80, 'step-9');">
+                <span class="fa fa-cloud-upload"></span>
+                <p>Step 8</p>
+            </div>
+            <div class="col-md-1" onclick="javascript: resetActive(event, 90, 'step-10');">
+                <span class="fa fa-cloud-upload"></span>
+                <p>Step 9</p>
+            </div>
+            <div id="last" class="col-md-1" onclick="javascript: resetActive(event, 100, 'step-11');">
+                <span class="fa fa-star"></span>
+                <p>Conclusion</p>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content step activeStepInfo" id="step-1">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>Basic Circuits</h1>
+                <h3 class="underline">Materials:</h3><br><br>
+                <div class="col-md-8 col-md-offset-4 intro-list">
+                    <ul class="list-group myList">
+                        <li>Emergency Flashlight Kit:</li>
+                        <ul>
+                            <li>3 Hershey Kisses</li>
+                            <li>1 pencil</li>
+                            <li>1 piece of woolen cloth</li>
+                            <li>1 D battery</li>
+                            <li>1 small bulb</li>
+                            <li>1 toothpick</li>
+                        </ul>
+                        <li>Foam board or cardboard</li>
+                        <li>Insulated Wire</li>
+                        <li>Wire cutters/strippers</li>
+                        <li>Electrical tape</li>
+                        <li>Small bulbs (Christmas lights cut up)</li>
+                        <li>D-cell batteries</li>
+                        <li>Milk cartons</li>
+                        <li>Electrical switches (two brads, paper clip on a small square of oak tag</li>
+                        <li>Art supplies</li><br><br>
+                    </ul>
+                </div>
+                <h3>Additional Resources</h3>
+                <div class="col-md-8 col-md-offset-4 intro-list">
+                    <ul class="list-group myList"><strong>Books</strong>
+                        <li>200 Science Investigations for Young Students, by Martin Wenham; ISBN 0-7619-6349-9</li>
+                        <li>Hands–On Physical Science Activities for Grades K-8, by Marvin N. Tolman; ISBN-0-13-230178-4</li>
+                        <li>Electricity and Magnetism, by Dr. John B. Beaver & Don Powers, Ph.D.; ISBN 1-58037-222-8</li>
+                    </ul>
+                </div>
+                <div class="col-md-8 col-md-offset-4 intro-list">
+                    <ul class="list-group myList"><strong>Web Sites</strong>
+                        <li><a href="http://www.andythelwell.com/blobz/">The Blobz Guide to Electric Circuits</a></li>
+                    </ul>
+                </div>
+                <h3>For the Teacher:</h3>
+                <div class="col-md-8 col-md-offset-2 inst">
+                    <p>Give the students an Emergency Flashlight Kit: a brown bag with the following items: three Hershey Kisses™
+                        (or a candy bar wrapped in foil…beware, some are now wrapped in paper treated with silver, but are not foil),
+                        a pencil, a piece of woolen cloth, a D-cell battery, a toothpick, and a small bulb. Tell the students they must
+                        make an emergency flashlight using only the items in the bag.</p>
+                </div>
+                <textarea id="classInput" placeholder="Questions?"></textarea>
+                <br><br><br>
+                <img id="magnets" src="../images/magneticPersonality/magnets.png">
+                <img id="paperclips" src="../images/magneticPersonality/paperclips.png">
+                <img id="notepad" src="../images/magneticPersonality/notepad.png">
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-2">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 1</h1>
+                <h3 class="underline">Instructions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">Have the students meet together to decide on the placement of their properties and what commercial
+                building they are going to make. Then have each student draw up the circuit diagram for their
+                individual property.
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="Questions?"></textarea><br><br><br>
+                    <img id="magnetchain" src="../images/magneticPersonality/magnetchain.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-3">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 2</h1>
+                <h3 class="underline">Instructions</h3><br><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">Give each student a piece of foam board or cardboard to use as
+                    his or her property. This works best if each of the individual pieces has been cut from a larger
+                    piece so that they fit back together nicely. Make sure that one extra piece is reserved for the
+                    commercial building.
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="Observations? Notes?"></textarea><br><br><br>
+                    <img src="../images/magneticPersonality/experiment4.png">
+                    <img src="../images/magneticPersonality/experiment5.png">
+                    <img src="../images/magneticPersonality/experiment6.png"><br><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-4">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 3</h1>
+                <h3 class="underline">Instructions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">Have the students each save two milk cartons from the cafeteria.
+                    One will be used for the house and the other as a cover for the power source. The group will also
+                    need a small cardboard box for their commercial building.
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="Have you come to a conclusion?"></textarea><br><br><br>
+                    <img src="../images/magneticPersonality/findings.png"><br><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-5">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 4</h1>
+                <h3 class="underline">Instructions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">Give each student two bulbs and two D-size batteries for
+                    their power source.
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="What evidence have you found?"></textarea><br><br>
+                    <img id="scientists" src="../images/magneticPersonality/kidScientist.png">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-6">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 5</h1>
+                <h3 class="underline">Instructions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">Have lots of insulated wire, wire cutter/strippers, and
+                    electrical tape available for making circuits. They will also need to make a switch using two
+                    brads and a paper clip attached to a small piece of oak tag or cardboard.
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="What evidence have you found?"></textarea><br><br>
+                    <img id="scientists" src="../images/magneticPersonality/kidScientist.png">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-7">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 6</h1>
+                <h3 class="underline">Instructions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">Have art supplies available for making their properties
+                    attractive (construction paper to cover the milk cartons, craft sticks for fences,
+                    Spanish moss for bushes, etc.).
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="What evidence have you found?"></textarea><br><br>
+                    <img id="scientists" src="../images/magneticPersonality/kidScientist.png">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-8">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 7</h1>
+                <h3 class="underline">Instructions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">The students will then proceed to put a light through the bottom
+                    of their milk carton house, place the house on the board and run the wires underneath the board to
+                    complete the simple circuit. The power source should be placed near the switch and then covered
+                    with the other milk carton (cut the top part off and turn it over). The outside light source can
+                    be a lamppost (flexible drinking straws work well for this) or any other creative use of outside
+                    lighting (a porch light, light inside a hot tub, on a sport court, etc.).
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="What evidence have you found?"></textarea><br><br>
+                    <img id="scientists" src="../images/magneticPersonality/kidScientist.png">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-9">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 8</h1>
+                <h3 class="underline">Instructions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">Once the students have completed their own properties,
+                    they make the commercial property and run the circuitry for two light sources.
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="What evidence have you found?"></textarea><br><br>
+                    <img id="scientists" src="../images/magneticPersonality/kidScientist.png">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-10">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>STEP 9</h1>
+                <h3 class="underline">Instructions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">Once everyone has their subdivisions complete and put together,
+                    turn off the lights in your classroom and have the official “lighting” ceremony.
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="What evidence have you found?"></textarea><br><br>
+                    <img id="scientists" src="../images/magneticPersonality/kidScientist.png">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row setup-content step hiddenStepInfo" id="step-11">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1>Discuss the results.</h1>
+                <h3 class="underline">Questions</h3><br><br>
+                <div class="col-md-8 col-md-offset-2 inst">
+                    <p>Why does current stop when the switch is open?</p>
+                    <p>How could you make the light brighter?</p>
+                    <p>How do circuit breakers/fuses work?</p>
+                </div>
+                <div>
+                    <textarea id="classInput" placeholder="Observations? Notes?"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
