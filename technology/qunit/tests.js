@@ -1,49 +1,44 @@
+//http://stackoverflow.com/questions/646628/how-to-check-if-a-string-startswith-another-string
 function stringStartsWith (string, prefix) {
     return string.slice(0, prefix.length) == prefix;
 }
+function TypingModel(source) {
+    this.sourceDocument = source;
+    this.theirDocument = "";
 
-function TypingModel(doc) {
-    this.sourceDoc = doc;
-    this.theirDoc = "";
-
-    //What they typed so far is exactly equal to the source.
+    //What they've typed in so far is exactly equal to the source document
     this.isAccurate = function() {
-        return stringStartsWith (this.sourceDoc, this.theirDoc);
+        return stringStartsWith(this.sourceDocument, this.theirDocument);
     }
-    this.setTheirDoc = function(theirDoc) {
-        this.theirDoc = theirDoc;
+    this.setTheirDocument = function(theirDocument) {
+        this.theirDocument = theirDocument;
     }
-    //returns percentage of completion (0-100%)
+    //Returns percentage of completion (0-100%)
     this.progress = function() {
-        return (this.theirDoc.length / this.sourceDoc.length)*100;
+        return (this.theirDocument.length / this.sourceDocument.length) * 100;
     }
 }
-var sourceDoc = "Now is the time for all good men to come to the aid of the party";
-QUnit.test( "Source test", function( assert ) {
-    var model = new TypingModel(sourceDoc);
-    //var theInput = $("#theInput").val();
+var sourceDocument = "Now is the time for all good men to come to the aid of the party";
+QUnit.test( "isAccurate Test", function( assert ) {
+    var model = new TypingModel(sourceDocument);
 
     assert.ok( model.isAccurate(), "Passed!" );
-    assert.equal(model.sourceDoc, sourceDoc);
 
-});
-
-QUnit.test( "Progress test", function( assert ) {
-    var model = new TypingModel(sourceDoc);
     assert.equal(model.progress(), 0.0);
 
-    model.setTheirDoc("N");
-    assert.ok(model.progress() > 0, "User has typed in one letter");
+    model.setTheirDocument("N");
+    assert.equal(model.theirDocument, "N");
 
-    model.setTheirDoc(sourceDoc);
-    assert.ok(model.progress() == 100, "Complete!")
+    assert.ok(model.progress() > 0, "User has typed in one letter")
+
+    assert.ok(model.isAccurate())
+    model.setTheirDocument("Na");
+    assert.ok(!model.isAccurate(), "The user mistyped a letter")
+
+    model.setTheirDocument(sourceDocument);
+    assert.equal(model.progress(), 100.0);
 });
-
-QUnit.test( "Accuracy test", function( assert ) {
-    var model = new TypingModel(sourceDoc);
-    model.setTheirDoc("Na");
-    assert.equal(model.theirDoc, "Na");
-
-    assert.equal(model.isAccurate(), false);
-
+QUnit.test( "source Doc Test", function( assert ) {
+    var model = new TypingModel(sourceDocument);
+    assert.equal(model.sourceDocument, sourceDocument);
 });
