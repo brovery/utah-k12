@@ -36,11 +36,12 @@ function checkWord() {
 
     if(w < spellingList.words.length) {
         curWord = new Word(spellingList.words[w]);
+        $('#typed').val("");
     }
 
     // change button to grade when you reach the end of the words list.
     if(w == spellingList.words.length) {
-        $('#scoreBtn').text("Grade").attr("onclick","grade()");
+        $('#scoreBtn').text("Grade").attr("onclick","grade()").removeClass("btn-info").addClass("btn-warning");
     }
 }
 
