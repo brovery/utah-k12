@@ -67,7 +67,11 @@ function WordList(source, delimeter) {
 
 function Word(src, language) {
     this.src = src.toUpperCase();
-    this.voice = window.speechSynthesis.getVoices()[1];
+    window.speechSynthesis.onvoiceschanged = function() {
+        var voices = window.speechSynthesis.getVoices();
+        this.voice = voices[1];
+    };
+    //this.voice = window.speechSynthesis.getVoices()[1];
     this.language = language || "en";
     this.translation = (this.language == 'en') ? new Word('word', 'fr') : null;
     this.say = function () {
