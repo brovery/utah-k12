@@ -1,5 +1,6 @@
 var w = 0,
     curWord,
+    utter,
     score = 0;
 
 function myWords() {
@@ -13,11 +14,12 @@ function myWords() {
             .append('<input class="form-control" type="text" id="typed" placeholder="enter word here"/><br>')
             .append('<button id="scoreBtn" class="btn btn-info" onclick="checkWord()">Submit</button>');
         curWord = new Word(spellingList.words[w]);
+        utter = new Speech(spellingList.words[w]);
     }
 }
 
 function playWord() {
-    curWord.say();
+    utter.say();
 }
 
 function checkWord() {
@@ -27,15 +29,16 @@ function checkWord() {
 
     if (curWord.spelledRight(thisTry)) {
         score++;
-        var correct = new Word("Good Job!");
+        var correct = new Speech("Good Job!");
         correct.say();
     } else {
-        var wrong = new Word("You are an idiot.");
+        var wrong = new Speech("You are an idiot.");
         wrong.say();
     }
 
     if(w < spellingList.words.length) {
         curWord = new Word(spellingList.words[w]);
+        utter = new Speech(spellingList.words[w]);
         $('#typed').val("");
     }
 
@@ -67,20 +70,22 @@ function WordList(source, delimeter) {
 
 function Word(src, language) {
     this.src = src.toUpperCase();
-    window.speechSynthesis.onvoiceschanged = function() {
-        var voices = window.speechSynthesis.getVoices();
-        this.voice = voices[1];
-    };
-    //this.voice = window.speechSynthesis.getVoices()[1];
-    this.language = language || "en";
-    this.translation = (this.language == 'en') ? new Word('word', 'fr') : null;
-    this.say = function () {
-        var msg = new SpeechSynthesisUtterance(this.src);
-        msg.voice = this.voice;
-        window.speechSynthesis.speak(msg);
-    };
+
     this.spelledRight = function (word) {
         return word == this.src;
     }
+}
 
+function Speech(message) {
+    var msg = new SpeechSynthesisUtterance(message);
+    msg.lang = 'en';
+
+    window.speechSynthesis.onvoiceschanged = function() {
+        var voices = window.speechSynthesis.getVoices();
+        msg.voice = voices[1];
+    };
+
+    this.say = function() {
+        window.speechSynthesis.speak(msg);
+    }
 }
