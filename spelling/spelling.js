@@ -1,7 +1,12 @@
 var w = 0,
     curWord,
     utter,
+    voices,
     score = 0;
+
+window.speechSynthesis.onvoiceschanged = function() {
+    voices = window.speechSynthesis.getVoices();
+};
 
 function myWords() {
     var mylist = $('#hi').val();
@@ -68,7 +73,7 @@ function WordList(source, delimeter) {
 
 }
 
-function Word(src, language) {
+function Word(src) {
     this.src = src.toUpperCase();
 
     this.spelledRight = function (word) {
@@ -79,11 +84,8 @@ function Word(src, language) {
 function Speech(message) {
     var msg = new SpeechSynthesisUtterance(message);
     msg.lang = 'en';
+    msg.voice = voices[3];
 
-    window.speechSynthesis.onvoiceschanged = function() {
-        var voices = window.speechSynthesis.getVoices();
-        msg.voice = voices[1];
-    };
 
     this.say = function() {
         window.speechSynthesis.speak(msg);
